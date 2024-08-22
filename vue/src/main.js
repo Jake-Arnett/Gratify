@@ -4,8 +4,6 @@ import { createStore } from './store'
 import router from './router'
 import axios from 'axios'
 
-/* sets the base url for server API communication with axios */
-axios.defaults.baseURL = import.meta.env.VITE_REMOTE_API;
 
 /*
  * The authorization header is set for axios when you login but what happens when 
@@ -25,6 +23,7 @@ if (currentToken) {
 const store = createStore(currentToken, currentUser);
 
 const app = createApp(CapstoneApp);
+
 app.use(store);
 app.use(router);
 app.mount('#app');

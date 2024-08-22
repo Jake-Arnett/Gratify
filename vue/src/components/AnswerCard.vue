@@ -1,11 +1,25 @@
 <template>
     <div class="card">
-      <h1>Card</h1>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, consequatur asperiores et dolorem consequuntur minima voluptate laborum pariatur excepturi dolorum unde rerum culpa, aspernatur, sint blanditiis. Voluptas dignissimos ex quidem!</p>
+        <div id="card-header">
+            <img id="avatar" src="https://imgur.com/pJipQzh.jpeg" alt="user avatar image">
+            <div id="post-info">
+                <h5>James Bond</h5>
+                <p>Aug 22 2024</p>
+             </div>
+        </div>
+    
+        <h5>Tell us about someone you are thankful to have in your life?</h5>
+        <p>I’m profoundly thankful for my ally, M. Their unwavering support and sharp intellect have been crucial in navigating countless high-stakes missions. Without their guidance, many of my successes would not have been possible.</p>
+        
+        <div id="reaction-icons">
+            <i class="fa-solid fa-heart"></i>
+            <i class="fa-solid fa-thumbs-up"></i>
+            <i class="fa-solid fa-star"></i>
+        </div>
     </div>
-  </template>
+</template>
   
-  <script>
+<script>
   export default {
     data() {
         return {
@@ -70,5 +84,39 @@
         }
     }
   };
-  </script>
+</script>
+
+<style scoped>
+    .card{
+        background-color: #eee;
+        width: 60vw;
+        margin: auto;
+        padding: 30px;
+        border: none;
+    }
+
+    #avatar{
+        width: 100px;
+        border-radius: 50%;
+    }
+
+    #card-header{
+        display: flex;
+        align-items: flex-end;
+        margin-bottom: 10px;
+    }
+
+    #post-info {
+        margin: 0 0 0 20px;
+    }
+
+    #reaction-icons i {
+        padding: 5px;
+        font-size: 20px;
+    }
+
+</style>
+
+
+
   
