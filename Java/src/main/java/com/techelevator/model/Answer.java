@@ -1,27 +1,23 @@
 package com.techelevator.model;
 
+import java.time.LocalDateTime;
+
 public class Answer {
-    int AnswerId;
-    int questionId;
-    int userId;
-    String answerStr;
+    private int questionId;
+    private int userId;
+    private String answerStr;
+    private LocalDateTime timestamp;
 
     public Answer() {}
 
-    public Answer(int answerId, int questionId, int userId, String answerStr) {
-        AnswerId = answerId;
+    public Answer( int questionId, int userId, String answerStr, LocalDateTime timestamp) {
         this.questionId = questionId;
         this.userId = userId;
         this.answerStr = answerStr;
+        this.timestamp = timestamp;
     }
 
-    public int getAnswerId() {
-        return AnswerId;
-    }
 
-    public void setAnswerId(int answerId) {
-        AnswerId = answerId;
-    }
 
     public int getQuestionId() {
         return questionId;
@@ -45,5 +41,13 @@ public class Answer {
 
     public void setAnswerStr(String answerStr) {
         this.answerStr = answerStr;
+    }
+
+    public LocalDateTime getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(LocalDateTime timestamp) {
+        this.timestamp = timestamp;
     }
 }

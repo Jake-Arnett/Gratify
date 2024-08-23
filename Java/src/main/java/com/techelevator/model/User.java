@@ -6,7 +6,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
-public class User {
+public class              User {
 
    private int id;
    private String username;
@@ -15,10 +15,14 @@ public class User {
    @JsonIgnore
    private boolean activated;
    private Set<Authority> authorities = new HashSet<>();
+   private String firstName;
+   private String LastName;
+   private String profilePictureURL;
+
 
    public User() { }
 
-   public User(int id, String username, String password, String authorities) {
+   public User(int id, String username, String password, String authorities, String firstName, String LastName, String profilePictureURL) {
       this.id = id;
       this.username = username;
       this.password = password;
@@ -72,6 +76,30 @@ public class User {
          String authority = role.contains("ROLE_") ? role : "ROLE_" + role;
          this.authorities.add(new Authority(authority));
       }
+   }
+
+   public String getFirstName() {
+      return firstName;
+   }
+
+   public void setFirstName(String firstName) {
+      this.firstName = firstName;
+   }
+
+   public String getLastName() {
+      return LastName;
+   }
+
+   public void setLastName(String lastName) {
+      LastName = lastName;
+   }
+
+   public String getProfilePictureURL() {
+      return profilePictureURL;
+   }
+
+   public void setProfilePictureURL(String profilePictureURL) {
+      this.profilePictureURL = profilePictureURL;
    }
 
    @Override

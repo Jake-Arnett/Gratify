@@ -1,14 +1,18 @@
 package com.techelevator.model;
 
+import java.time.LocalDateTime;
+
 public class Question {
-    int questionId;
-    String questionStr;
+    private int questionId;
+    private String questionStr;
+    private LocalDateTime timestamp;
 
     public Question() {}
 
-    public Question(int questionId, String questionStr) {
+    public Question(int questionId, String questionStr, LocalDateTime timestamp) {
         this.questionId = questionId;
         this.questionStr = questionStr;
+        this.timestamp = timestamp;
     }
 
     public int getQuestionId() {
