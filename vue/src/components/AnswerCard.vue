@@ -23,6 +23,13 @@
   export default {
     data() {
         return {
+            card: {
+                avatarImg: "",
+                fullName: "",
+                question: "",
+                answer: ""
+            },
+
             users: [
                 { UserID: 1, Username: 'JBond', FirstName: 'James', LastName: 'Bond', ProfilePicture: 'https://imgur.com/pJipQzh' },
                 { UserID: 2, Username: 'Dorthy.Gale', FirstName: 'Dorothy', LastName: 'Gale', ProfilePicture: 'https://imgur.com/ysi3oZm' },
