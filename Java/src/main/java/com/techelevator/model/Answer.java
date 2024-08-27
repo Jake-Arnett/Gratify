@@ -3,6 +3,7 @@ package com.techelevator.model;
 import java.time.LocalDateTime;
 
 public class Answer {
+    private int answerId;
     private int questionId;
     private int userId;
     private String answerStr;
@@ -10,14 +11,21 @@ public class Answer {
 
     public Answer() {}
 
-    public Answer( int questionId, int userId, String answerStr, LocalDateTime timestamp) {
+    public Answer( int answerId, int questionId, int userId, String answerStr, LocalDateTime timestamp) {
+        this.answerId = answerId;
         this.questionId = questionId;
         this.userId = userId;
         this.answerStr = answerStr;
         this.timestamp = timestamp;
     }
 
+    public int getAnswerId() {
+        return answerId;
+    }
 
+    public void setAnswerId(int answerId) {
+        this.answerId = answerId;
+    }
 
     public int getQuestionId() {
         return questionId;
