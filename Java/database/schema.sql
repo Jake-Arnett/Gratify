@@ -1,9 +1,9 @@
 BEGIN TRANSACTION;
 
-DROP TABLE IF EXISTS users;
-DROP TABLE IF EXISTS questions;
-DROP TABLE IF EXISTS answers;
 DROP TABLE IF EXISTS relationships;
+DROP TABLE IF EXISTS answers;
+DROP TABLE IF EXISTS questions;
+DROP TABLE IF EXISTS users;
 
 CREATE TABLE users (
 	user_id serial,
@@ -27,12 +27,12 @@ CREATE TABLE answers (
     answer_id serial,
     question_id int NOT NULL,
     user_id int NOT NULL,
-    answer_str int NOT NULL,
+    answer_str varchar(500) NOT NULL,
     answer_timestamp timestamp NOT NULL,
     CONSTRAINT PK_answer PRIMARY KEY (answer_id),
     CONSTRAINT FK_answer_question FOREIGN KEY (question_id) references questions(question_id),
     CONSTRAINT FK_answer_user FOREIGN KEY (user_id) references users(user_id)
-)
+);
 
 CREATE TABLE relationships (
     request_id serial,
@@ -43,8 +43,6 @@ CREATE TABLE relationships (
     CONSTRAINT PK_relationship PRIMARY KEY (request_id),
     CONSTRAINT FK_requester_user FOREIGN KEY (requester_user_id) references users(user_id),
     CONSTRAINT FK_requestee_user FOREIGN KEY (requestee_user_id) references users(user_id)
-)
-
-
+);
 
 COMMIT TRANSACTION;
