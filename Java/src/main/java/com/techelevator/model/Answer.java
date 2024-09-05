@@ -3,44 +3,44 @@ package com.techelevator.model;
 import java.time.LocalDateTime;
 
 public class Answer {
-    private int answerId;
-    private int questionId;
-    private int userId;
+    private String userProfilePictureURL;
+    private String username;
+    private String questionStr;
     private String answerStr;
     private LocalDateTime timestamp;
 
     public Answer() {}
 
-    public Answer( int answerId, int questionId, int userId, String answerStr, LocalDateTime timestamp) {
-        this.answerId = answerId;
-        this.questionId = questionId;
-        this.userId = userId;
+    public Answer(String userProfilePictureURL, String username, String questionStr, String answerStr, LocalDateTime timestamp) {
+        this.userProfilePictureURL = userProfilePictureURL;
+        this.username = username;
+        this.questionStr = questionStr;
         this.answerStr = answerStr;
         this.timestamp = timestamp;
     }
 
-    public int getAnswerId() {
-        return answerId;
+    public String getUserProfilePictureURL() {
+        return userProfilePictureURL;
     }
 
-    public void setAnswerId(int answerId) {
-        this.answerId = answerId;
+    public void setUserProfilePictureURL(String userProfilePictureURL) {
+        this.userProfilePictureURL = userProfilePictureURL;
     }
 
-    public int getQuestionId() {
-        return questionId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setQuestionId(int questionId) {
-        this.questionId = questionId;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getQuestionStr() {
+        return questionStr;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setQuestionStr(String questionStr) {
+        this.questionStr = questionStr;
     }
 
     public String getAnswerStr() {

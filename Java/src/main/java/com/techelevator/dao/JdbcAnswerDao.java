@@ -1,7 +1,7 @@
 package com.techelevator.dao;
 
 import com.techelevator.exception.DaoException;
-import com.techelevator.model.AnswerCard;
+import com.techelevator.model.Answer;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -9,17 +9,17 @@ import org.springframework.jdbc.support.rowset.SqlRowSet;
 import java.util.ArrayList;
 import java.util.List;
 
-public class JdbcAnswerCardDao implements AnswerCardDao {
+public class JdbcAnswerDao implements AnswerDao {
 
     private final JdbcTemplate jdbcTemplate;
 
-    public JdbcAnswerCardDao(JdbcTemplate jdbcTemplate) {
+    public JdbcAnswerDao(JdbcTemplate jdbcTemplate) {
         this.jdbcTemplate = jdbcTemplate;
     }
 
     @Override
-    public List<AnswerCard> getAnswerCardsByUserId(int userId) {
-        List <AnswerCard> answerCards = new ArrayList<>();
+    public List<Answer> getAnswersByUserId(int userId) {
+        List <Answer> answers = new ArrayList<>();
         String sql =    "SELECT users.username, users.profile_picture_url, answers.answer_timestamp, questions.question_str, answers.answer_str " +
                         "FROM answers " +
                         "JOIN questions ON answers.question_id = questions.question_id " +
@@ -30,24 +30,24 @@ public class JdbcAnswerCardDao implements AnswerCardDao {
         try {
             SqlRowSet results = jdbcTemplate.queryForRowSet(sql, userId);
             while (results.next()){
-                AnswerCard answerCard = mapRowToAnswerCard(results);
-                answerCards.add(answerCard);
+                Answer answer = mapRowToAnswerCard(results);
+                answers.add(answer);
             }
         } catch (CannotGetJdbcConnectionException e) {
             throw new DaoException("Unable to connect to server or database", e);
         }
 
-        return answerCards;
+        return answers;
     }
 
-    private AnswerCard mapRowToAnswerCard(SqlRowSet results){
-        AnswerCard answerCard = new AnswerCard();
-        answerCard.setUsername(results.getString("username"));
-        answerCard.setUserProfilePictureURL(results.getString("profile_picture_url"));
-        answerCard.setTimestamp(results.getTimestamp("answer_timestamp").toLocalDateTime());
-        answerCard.setQuestionStr(results.getString("question_str"));
-        answerCard.setAnswerStr(results.getString("answer_str"));
+    private Answer mapRowToAnswerCard(SqlRowSet results){
+        Answer answer = new Answer();
+        answer.setUsername(results.getString("username"));
+        answer.setUserProfilePictureURL(results.getString("profile_picture_url"));
+        answer.setTimestamp(results.getTimestamp("answer_timestamp").toLocalDateTime());
+        answer.setQuestionStr(results.getString("question_str"));
+        answer.setAnswerStr(results.getString("answer_str"));
 
-        return answerCard;
+        return answer;
     }
 }

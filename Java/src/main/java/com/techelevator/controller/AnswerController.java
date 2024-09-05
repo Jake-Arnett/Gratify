@@ -1,12 +1,12 @@
 package com.techelevator.controller;
 
-import com.techelevator.dao.AnswerCardDao;
+import com.techelevator.dao.AnswerDao;
 
 public class AnswerController {
-    private AnswerCardDao answerCardDao;
+    private AnswerDao answerDao;
 
-    public AnswerController(AnswerCardDao answerCardDao){
-        this.answerCardDao = answerCardDao;
+    public AnswerController(AnswerDao answerDao){
+        this.answerDao = answerDao;
     }
 
 
