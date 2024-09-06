@@ -1,14 +1,19 @@
 package com.techelevator.dao;
 
+import javax.validation.Valid;
+
+
 import com.techelevator.exception.DaoException;
 import com.techelevator.model.Answer;
 import org.springframework.jdbc.CannotGetJdbcConnectionException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class JdbcAnswerDao implements AnswerDao {
 
     private final JdbcTemplate jdbcTemplate;
