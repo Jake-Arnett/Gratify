@@ -54,7 +54,7 @@ const routes = [
     name: "feed",
     component: FeedView,
     meta: {
-      requiresAuth: false
+      requiresAuth: true
     }
   }
 ];
