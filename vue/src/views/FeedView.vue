@@ -1,19 +1,19 @@
 c<template>
     <div class="feed">
-        <answer-card v-bind:answer="answer" />
+        <answer-list :answers="answer" />
     </div>
 </template>
 
 <script>
 import answerService from "../services/AnswerService";
-import AnswerCard from "../components/AnswerCard.vue"
+import AnswerList from "../components/AnswerList.vue";
 
 export default {
     name: "feed",
-    components: { AnswerCard },
+    components: { AnswerList },
     data(){
         return {
-            answer: {}
+            answers: []
         }
     },
     methods: {

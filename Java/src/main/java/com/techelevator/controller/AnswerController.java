@@ -44,6 +44,18 @@ public class AnswerController {
         }
     }
 
+    @PreAuthorize("hasAnyRole('ROLE_USER')")
+    @RequestMapping(path = "feed", method = RequestMethod.GET)
+    public List<Answer> getAnswersForFeedById(Principal principal) throws IllegalAccessException{
+        User user = userDao.getUserByUsername(principal.getName());
+        List<Answer> answers = answerDao.getAnswersForUserFeedByUserId(user.getId());
+        if (answers.isEmpty()) {
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "User Answers Not Found.");
+        } else {
+            return answers;
+        }
+    }
+
 
 
 }

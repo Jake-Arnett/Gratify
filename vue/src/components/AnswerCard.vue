@@ -1,7 +1,7 @@
 <template>
     <div class="card">
         <div id="card-header">
-            <img id="avatar" src="{{answer.userProfilePictureURL}}" alt="user avatar image">
+            <img id="avatar" v-bind:src="answer.userProfilePictureURL" alt="user avatar image">
             <div id="post-info">
                 <h5>{{ answer.username }}</h5>
                 <p>{{ answer.timestamp }}</p>

@@ -7,4 +7,6 @@ import java.util.List;
 public interface AnswerDao {
 
     List <Answer> getAnswersByUserId(int userId);
+
+    List <Answer> getAnswersForUserFeedByUserId(int userId);
 }

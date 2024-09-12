@@ -3,7 +3,8 @@ package com.techelevator.model;
 import java.time.LocalDateTime;
 
 public class Answer {
-    private String userProfilePictureURL;
+    private int answerId;
+    private String pictureURL;
     private String username;
     private String questionStr;
     private String answerStr;
@@ -11,20 +12,29 @@ public class Answer {
 
     public Answer() {}
 
-    public Answer(String userProfilePictureURL, String username, String questionStr, String answerStr, LocalDateTime timestamp) {
-        this.userProfilePictureURL = userProfilePictureURL;
+    public Answer(int answerId, String pictureURL, String username, String questionStr, String answerStr, LocalDateTime timestamp) {
+        this.answerId = answerId;
+        this.pictureURL = pictureURL;
         this.username = username;
         this.questionStr = questionStr;
         this.answerStr = answerStr;
         this.timestamp = timestamp;
     }
 
-    public String getUserProfilePictureURL() {
-        return userProfilePictureURL;
+    public int getAnswerId() {
+        return answerId;
     }
 
-    public void setUserProfilePictureURL(String userProfilePictureURL) {
-        this.userProfilePictureURL = userProfilePictureURL;
+    public void setAnswerId(int answerId) {
+        this.answerId = answerId;
+    }
+
+    public String getPictureURL() {
+        return pictureURL;
+    }
+
+    public void setPictureURL(String pictureURL) {
+        this.pictureURL = pictureURL;
     }
 
     public String getUsername() {
