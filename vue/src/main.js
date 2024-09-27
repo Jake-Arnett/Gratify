@@ -4,6 +4,7 @@ import { createStore } from './store'
 import router from './router'
 import axios from 'axios'
 
+axios.defaults.baseURL = import.meta.env.VITE_REMOTE_API;
 
 /*
  * The authorization header is set for axios when you login but what happens when 

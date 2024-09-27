@@ -32,7 +32,7 @@ public class AnswerController {
         this.userDao = userDao;
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_USER')")
+
     @RequestMapping(path = "answer-history", method = RequestMethod.GET)
     public List<Answer> getAnswersById(Principal principal) throws IllegalAccessException{
         User user = userDao.getUserByUsername(principal.getName());
@@ -44,7 +44,7 @@ public class AnswerController {
         }
     }
 
-    @PreAuthorize("hasAnyRole('ROLE_USER')")
+
     @RequestMapping(path = "feed", method = RequestMethod.GET)
     public List<Answer> getAnswersForFeedById(Principal principal) throws IllegalAccessException{
         User user = userDao.getUserByUsername(principal.getName());
